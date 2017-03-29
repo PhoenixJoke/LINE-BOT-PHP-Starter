@@ -18,17 +18,12 @@ if (!is_null($events['events'])) {
 			// connect to 142 for get reply message
 			$field_string = http_build_query($events);
 			
-			$ch = curl_init();
-			curl_setopt($ch, CURLOPT_URL, "http://app3.shinee.com:85/Line/gate_api.php");
-			curl_setopt($ch, CURLOPT_POST, true);
-			curl_setopt($ch, CURLOPT_POSTFIELDS, $fields_string);
-			
-			/*$ch = curl_init("http://app3.shinee.com:85/Line/gate_api.php");
+			$ch = curl_init("http://app3.shinee.com:85/Line/gate_api.php");
 			curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
 			curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-			curl_setopt($ch, CURLOPT_POSTFIELDS, $post);
+			curl_setopt($ch, CURLOPT_POSTFIELDS, $fields_string);
 			curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-			curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);*/
+			curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
 			
 			$result = curl_exec($ch);
 			curl_close($ch);
