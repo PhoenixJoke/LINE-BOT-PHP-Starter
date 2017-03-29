@@ -1,0 +1,16 @@
+<?php
+$access_token = 'q91Y9dZHe1t/z+l21rO0V0sca7frsOukY8PfEPdKOFlu9c9c0IJs2BF6KN8Yh1LmsJHBBIcjSiXhTKxH8eVoQ3dxpC0CdK4tkNfSwHIbAmrqheQGX92ZE88eN+PBDO55EHTxsKxaiIGkUMUFJ7SinAdB04t89/1O/w1cDnyilFU=';
+
+$url = 'https://api.line.me/v1/oauth/verify';
+
+$headers = array('Authorization: Bearer ' . $access_token);
+
+$ch = curl_init($url);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
+$result = curl_exec($ch);
+curl_close($ch);
+
+echo $result;
+?>
