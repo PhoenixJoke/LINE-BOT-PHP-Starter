@@ -16,12 +16,10 @@ if (!is_null($events['events'])) {
 			//$text = 'ทดสอบภาษาไทย';
 			
 			// connect to 142 for get reply message
-			$field_string = http_build_query($events);
-			
 			$ch = curl_init("http://app3.shinee.com:85/Line/gate_api.php");
 			curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
 			curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-			curl_setopt($ch, CURLOPT_POSTFIELDS, $fields_string);
+			curl_setopt($ch, CURLOPT_POSTFIELDS, $events);
 			curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
 			curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
 			
