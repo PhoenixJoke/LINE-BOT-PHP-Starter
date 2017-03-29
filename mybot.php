@@ -16,19 +16,18 @@ if (!is_null($events['events'])) {
 			//$text = 'ทดสอบภาษาไทย';
 			
 			// connect to 142 for get reply message
-			$text = serialize($events);
-			
-			/*$ch = curl_init("http://app3.shinee.com:85/Line/gate_api.php");
+			$ch = curl_init("http://app3.shinee.com:85/Line/gate_api.php");
 			curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
 			curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-			curl_setopt($ch, CURLOPT_POSTFIELDS, $dataString);
 			curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
 			curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
+			curl_setopt($ch, CURLOPT_POST, true);
+			curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($event));
 			
 			$result = curl_exec($ch);
 			curl_close($ch);
 			
-			$text = $result;*/
+			$text = $result;
 			
 			// end connect
 			
