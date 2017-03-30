@@ -12,9 +12,13 @@ if (!is_null($events['events'])) {
 		// Reply only when message sent is in 'text' format
 		//if ($event['type'] == 'message' && $event['message']['type'] == 'text') {
 			// Get text sent
-			//$text = $event['message']['text'];
-			//$text = 'ทดสอบภาษาไทย';
-			
+			if ($event['message']['type'] == 'text') {
+			     $text = $event['message']['text'];
+			}
+			else {
+			     $text = "ได้รับข้อมูลเรียบร้อยแล้ว";
+			}
+						
 			// connect to 142 for get reply message
 			$ch = curl_init("http://app3.shinee.com:85/Line/gate_api.php");
 			curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
@@ -27,7 +31,7 @@ if (!is_null($events['events'])) {
 			$result = curl_exec($ch);
 			curl_close($ch);
 			
-			$text = $result;
+			//$text = $result;
 			
 			// end connect
 			
